@@ -1,52 +1,215 @@
-
 <!doctype html>
 <html lang="id">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Login Santri | Daarul Azmi</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123c62">
+    <meta name="description" content="Baca Al-Qur’an dan terjemahan Bahasa Indonesia bersama Pondok Pesantren Daarul Azmi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quran.daarulazmi.ponpes.id/">
+    <meta property="og:title" content="Al-Qur’an — Pondok Pesantren Daarul Azmi">
+    <meta property="og:description" content="Pembaca Al-Qur’an dengan teks Arab dan terjemahan Bahasa Indonesia.">
+    <link rel="canonical" href="https://quran.daarulazmi.ponpes.id/">
+    <link rel="icon" href="assets/icons/logoDA.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/quran.css">
+    <script type="module" src="assets/js/quran.js"></script>
+    <title>Al-Qur’an — Pondok Pesantren Daarul Azmi</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#reader">Langsung ke bacaan</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="Al-Qur’an Daarul Azmi, beranda">
+          <img class="brand-logo" src="assets/icons/logoDA.png" alt="">
+          <span class="brand-copy">
+            <strong>Al-Qur’an</strong>
+            <span>Pondok Pesantren Daarul Azmi</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Navigasi utama">
+          <a class="is-current" href="#reader">Al-Qur’an</a>
+          <a href="#quick-surahs">Surah pilihan</a>
+          <a href="#daily-doa">Doa harian</a>
+          <a href="#prayer-times">Jadwal shalat</a>
+          <a href="#source-notes">Sumber data</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Gunakan mode gelap" title="Ubah tema">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <a class="header-link" href="https://daarulazmi.ponpes.id/" target="_blank" rel="noopener noreferrer">
+          Situs Daarul Azmi <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
 
-<body class="login-page">
-  <main class="login-card">
-    <div class="logo-pondok">
-      <img
-        src="./assets/logo-daarulazmi.png"
-        alt="Logo Pondok Pesantren Daarul Azmi">
-    </div>
-    <h1>DAARUL AZMI</h1>
-    <p class="login-subtitle">Masuk ke Portal Santri &amp; Wali Santri</p>
-    <form id="loginForm">
-      <div id="nameField" hidden>
-        <label for="fullName">Nama lengkap</label>
-        <input
-          type="text"
-          id="fullName"
-          autocomplete="name"
-          maxlength="120"
-          placeholder="Nama santri">
+    <main id="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow"><span aria-hidden="true"></span> AL-QUR’AN DIGITAL / BAHASA INDONESIA</p>
+            <h1 id="page-title">Al-Qur’an.<br><span>Dekat setiap hari.</span></h1>
+            <p class="hero-description">Baca ayatnya. Pahami maknanya. Hidupkan ibadahmu.<br>Al-Qur’an, tafsir, dan murottal dalam satu ruang.</p>
+            <div class="hero-actions">
+              <a class="hero-primary" href="#reader"><span aria-hidden="true">▤</span> Mulai membaca</a>
+              <a class="hero-secondary" href="#reader-audio"><span aria-hidden="true">♫</span> Dengarkan murottal</a>
+            </div>
+            <p class="hero-stats"><span>114 SURAH</span><span>6 QARI</span><span>TAFSIR KEMENAG</span></p>
+          </div>
+          <article class="preview-card" aria-label="Pratinjau ayat Al-Fatihah">
+            <div class="preview-heading">
+              <span id="preview-kicker">QURAN READER</span>
+              <span aria-hidden="true">▤</span>
+            </div>
+            <h2 id="preview-title">Memuat surah…</h2>
+            <p class="preview-meta" id="preview-meta">Memuat informasi surah…</p>
+            <p class="preview-arabic" id="preview-arabic" lang="ar" dir="rtl"></p>
+            <p class="preview-translation" id="preview-translation">Memuat pratinjau dari sumber Al-Qur’an…</p>
+            <div class="preview-audio">
+              <button class="preview-play" id="preview-play" type="button" aria-label="Putar murottal surah">▶</button>
+              <span><strong id="preview-reciter">Misyari Rasyid Al-Afasy</strong><small id="preview-audio-label">AUDIO SURAT / 001</small></span>
+              <label class="sr-only" for="reciter-select">Pilih qari</label>
+              <select id="reciter-select" aria-label="Pilih qari">
+                <option value="01">Abdullah Al-Juhany</option>
+                <option value="02">Abdul Muhsin Al-Qasim</option>
+                <option value="03">Abdurrahman As-Sudais</option>
+                <option value="04">Ibrahim Al-Dossari</option>
+                <option value="05" selected>Misyari Rasyid Al-Afasy</option>
+                <option value="06">Yasser Al-Dosari</option>
+              </select>
+            </div>
+            <a class="preview-reader-link" href="#reader">Buka pembaca Al-Qur’an <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-strip" aria-label="Fitur pembaca">
+        <a class="feature-item" href="#reader"><span class="feature-icon" aria-hidden="true">▤</span><span><strong>Baca Al-Qur’an</strong><small>114 surah · Terjemahan Indonesia</small></span></a>
+        <a class="feature-item" href="#reader-audio"><span class="feature-icon" aria-hidden="true">♫</span><span><strong>Pemutar audio</strong><small>Murottal lengkap dari 6 qari</small></span></a>
+        <a class="feature-item" href="#reader"><span class="feature-icon" aria-hidden="true">۞</span><span><strong>Tafsir per ayat</strong><small>Rujukan Kementerian Agama RI</small></span></a>
+        <a class="feature-item" href="#daily-doa"><span class="feature-icon" aria-hidden="true">♡</span><span><strong>Doa harian</strong><small>Arab, latin, arti, dan referensi</small></span></a>
+        <a class="feature-item" href="#prayer-times"><span class="feature-icon" aria-hidden="true">◷</span><span><strong>Jadwal shalat</strong><small>Jadwal bulanan sesuai wilayah</small></span></a>
+      </section>
+
+      <section class="daily-section" aria-label="Doa harian dan jadwal shalat">
+        <article class="daily-card prayer-card" id="prayer-times">
+          <div class="daily-card-heading">
+            <div><p class="eyebrow">WAKTU IBADAH</p><h2>Jadwal shalat</h2></div>
+            <span class="daily-heading-icon" aria-hidden="true">◷</span>
+          </div>
+          <p class="daily-date" id="prayer-date">Pilih wilayah untuk melihat jadwal</p>
+          <div class="location-selectors">
+            <label for="province-select">Provinsi
+              <select id="province-select" disabled><option value="">Memuat provinsi…</option></select>
+            </label>
+            <label for="city-select">Kabupaten/kota
+              <select id="city-select" disabled><option value="">Pilih provinsi</option></select>
+            </label>
+          </div>
+          <p class="daily-status" id="prayer-status" role="status" aria-live="polite"></p>
+          <div class="prayer-times-grid" id="prayer-times-grid"></div>
+        </article>
+        <article class="daily-card doa-card" id="daily-doa">
+          <div class="daily-card-heading">
+            <div><p class="eyebrow">DOA &amp; DZIKIR</p><h2>Doa harian</h2></div>
+            <span class="daily-heading-icon" aria-hidden="true">♡</span>
+          </div>
+          <p class="doa-group" id="doa-group">Memuat koleksi doa…</p>
+          <h3 id="doa-title"></h3>
+          <p class="doa-arabic" id="doa-arabic" lang="ar" dir="rtl"></p>
+          <p class="doa-latin" id="doa-latin"></p>
+          <p class="doa-translation" id="doa-translation"></p>
+          <p class="doa-reference" id="doa-reference"></p>
+          <div class="doa-controls">
+            <button type="button" id="doa-previous" aria-label="Doa sebelumnya">← Sebelumnya</button>
+            <button type="button" id="doa-next">Doa berikutnya →</button>
+          </div>
+          <p class="daily-status" id="doa-status" role="status" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section class="quick-section" id="quick-surahs" aria-labelledby="quick-title">
+        <div class="quick-heading">
+          <div><p class="eyebrow">MULAI DARI SINI</p><h2 id="quick-title">Surah pilihan</h2></div>
+          <a href="#reader">Jelajahi seluruh surah <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="quick-grid" id="quick-grid">
+          <p class="quick-loading">Menyiapkan pilihan surah…</p>
+        </div>
+      </section>
+
+      <section class="reader-intro" aria-labelledby="reader-intro-title">
+        <p class="eyebrow">114 SURAH · TERJEMAHAN INDONESIA</p>
+        <h2 id="reader-intro-title">Bersama Al-Qur’an</h2>
+        <p>Pilih surah untuk mulai membaca, mendengarkan murottal, atau membuka tafsir ayat.</p>
+      </section>
+
+      <div class="reader-layout">
+        <aside class="surah-panel" aria-labelledby="surah-panel-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Jelajahi</p>
+              <h2 id="surah-panel-title">Daftar Surah</h2>
+            </div>
+            <span class="surah-total" id="surah-total" aria-label="Jumlah surah">114</span>
+          </div>
+          <label class="search-box" for="surah-search">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="surah-search" type="search" placeholder="Cari nama surah..." autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+          <div class="list-filters" role="group" aria-label="Filter tempat turun surah">
+            <button type="button" class="filter-chip is-active" data-place="all" aria-pressed="true">Semua</button>
+            <button type="button" class="filter-chip" data-place="Mekah" aria-pressed="false">Mekah</button>
+            <button type="button" class="filter-chip" data-place="Madinah" aria-pressed="false">Madinah</button>
+          </div>
+          <p class="list-status" id="list-status" role="status" aria-live="polite">Memuat daftar surah…</p>
+          <ol class="surah-list" id="surah-list" aria-label="Daftar surah Al-Qur’an"></ol>
+        </aside>
+
+        <section class="reader-panel" id="reader" aria-labelledby="surah-title">
+          <div class="reader-toolbar">
+            <div class="breadcrumb"><span>Al-Qur’an</span><span aria-hidden="true">/</span><span id="current-surah-crumb">Surah</span></div>
+            <label class="text-size-control" for="arabic-size">
+              <span aria-hidden="true">Aa</span>
+              <span class="sr-only">Ukuran teks Arab</span>
+              <input id="arabic-size" type="range" min="28" max="52" value="38" step="1" aria-label="Ukuran teks Arab">
+            </label>
+            <button class="tool-button" id="latin-toggle" type="button" aria-pressed="false">Transliterasi</button>
+          </div>
+
+          <header class="surah-heading">
+            <div class="surah-heading-copy">
+              <p class="surah-kicker" id="surah-kicker">SURAH</p>
+              <h2 id="surah-title">Memuat surah…</h2>
+              <p id="surah-meta" class="surah-meta"></p>
+            </div>
+            <p class="surah-name-arabic" id="surah-name-arabic" lang="ar" dir="rtl"></p>
+          </header>
+
+          <section class="audio-player" id="reader-audio" aria-label="Pemutar murottal surah">
+            <div class="audio-title"><span class="audio-icon" aria-hidden="true">♫</span><span><strong>Murottal surah</strong><small id="audio-track-title">Pilih surah untuk memulai</small></span></div>
+            <audio id="surah-audio" controls preload="none" aria-label="Audio murottal surah"></audio>
+          </section>
+
+          <div class="reader-status" id="reader-status" role="status" aria-live="polite">Menghubungkan ke sumber Al-Qur’an…</div>
+          <div class="verses" id="verses" aria-live="polite"></div>
+          <nav class="surah-navigation" aria-label="Navigasi surah">
+            <button class="nav-button nav-previous" id="previous-surah" type="button" disabled>
+              <span class="nav-arrow" aria-hidden="true">←</span>
+              <span><small>Surah sebelumnya</small><strong id="previous-name">—</strong></span>
+            </button>
+            <button class="nav-button nav-next" id="next-surah" type="button" disabled>
+              <span><small>Surah berikutnya</small><strong id="next-name">—</strong></span>
+              <span class="nav-arrow" aria-hidden="true">→</span>
+            </button>
+          </nav>
+        </section>
       </div>
-      <label for="email">Email akun santri atau wali</label>
-      <input type="email" id="email" autocomplete="username" required placeholder="Email terdaftar">
-      <label for="password">Password</label>
-      <input id="password" type="password" autocomplete="current-password" required minlength="6" placeholder="Password">
-      <div id="confirmPasswordField" hidden>
-        <label for="confirmPassword">Ulangi password</label>
-        <input id="confirmPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Ulangi password">
-      </div>
-      <p id="message" class="message" role="alert"></p>
-      <div class="login-actions">
-        <a class="login-back" href="https://daarulazmi.ponpes.id/">‹ Kembali ke Website Pondok</a>
-        <button id="submit" type="submit">Masuk <span aria-hidden="true">↪</span></button>
-      </div>
-    </form>
-    <p class="login-mode">
-      <span id="modePrompt">Belum punya akun?</span>
-      <button id="toggleMode" type="button" class="text-button">Daftar</button>
-    </p>
-    <p class="login-help">Gunakan akun yang telah didaftarkan untuk santri atau wali santri.</p>
-  </main>
-  <script type="module" src="./login.js"></script>
-</body>
+    </main>
+
+    <footer class="site-footer">
+      <p><img class="footer-logo" src="assets/icons/logoDA.png" alt=""> <span>Al-Qur’an Daarul Azmi</span></p>
+      <p id="source-notes">Al-Qur’an dan tafsir: <a href="https://quran.kemenag.go.id/" target="_blank" rel="noopener noreferrer">Kementerian Agama Republik Indonesia</a> melalui <a href="https://equran.id/apidev/v2" target="_blank" rel="noopener noreferrer">EQuran.id API v2</a>. Doa: <a href="https://equran.id/apidev/doa" target="_blank" rel="noopener noreferrer">EQuran.id Doa API</a>. Jadwal shalat: <a href="https://equran.id/apidev/shalat" target="_blank" rel="noopener noreferrer">EQuran.id Jadwal Shalat API</a>.</p>
+    </footer>
+  </body>
 </html>
