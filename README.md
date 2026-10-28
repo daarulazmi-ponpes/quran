@@ -13,6 +13,7 @@ Website pembaca Al-Qur’an statis untuk Pondok Pesantren Daarul Azmi. Dibangun 
 - Kumpulan doa dan jadwal shalat bulanan, termasuk pilihan provinsi serta kabupaten/kota.
 - Indikator pemuatan, pesan kesalahan, dan coba lagi.
 - Permintaan API memiliki batas waktu; daftar dan detail yang telah berhasil dimuat disimpan selama halaman terbuka.
+- Pratinjau berbagi Open Graph menggunakan artwork banner Qur’an Digital Daarul Azmi.
 
 ## Sumber konten
 
